@@ -26,17 +26,43 @@
     <!-- navbar -->
     <nav>
       <div class="nav__logo">
-        <div class="nav__logo__icon"></div>
-        <div class="nav__logo__webName"></div>
+        <div class="nav__logo__icon">
+          <i class="fa-solid fa-bomb"></i>
+        </div>
+        <div class="nav__logo__webName">MakeWeb</div>
       </div>
-      <ul class="nav__menuContainer">
-        <li class="nav___menuContainer__menu"></li>
-        <li class="nav___menuContainer__menu"></li>
-        <li class="nav___menuContainer__menu"></li>
-      </ul>
-      <div class="nav__login"></div>
+      <div class="nav__menuBtnContainer">
+        <button class="nav___menuContainer__menu">홈</button>
+        <button class="nav___menuContainer__menu">이용방법</button>
+        <button class="nav___menuContainer__menu">문의사항</button>
+      </div>
+      <div class="nav__login">
+        <button class="nav__login__loginBtn">로그인</button>
+        <button
+          class="nav__login__regiBtn"
+          onclick="location.href='register.html'"
+        >
+          회원가입
+        </button>
+        <!-- 회원가입 클릭시 페이지이동 -->
+        <!-- 로그인버튼 클릭시 등장 -->
+        <form action="#" class="nav__login__form">
+          <label for="id">아이디</label>
+          <input type="text" name="id" id="id" />
+          <label for="pw">비밀번호</label>
+          <input type="password" name="pw" id="pw" />
+          <label for="submit"></label>
+          <input type="submit" value="로그인" />
+        </form>
+      </div>
     </nav>
-    <main></main>
+
+    <!--Main content-->
+    <main>
+      <div class="sandBox"></div>
+    </main>
+
+    <!--Footer-->
     <footer></footer>
   </body>
 </html>
