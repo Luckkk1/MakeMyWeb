@@ -36,16 +36,17 @@
         <button class="nav___menuContainer__menu">이용방법</button>
         <button class="nav___menuContainer__menu">문의사항</button>
       </div>
+      <!--버튼 클릭시 회원가입 페이지로 이동-->
       <div class="nav__login">
         <button class="nav__login__loginBtn">로그인</button>
+        <!--버튼 클릭시 회원가입 페이지로 이동-->
         <button
           class="nav__login__regiBtn"
           onclick="location.href='register.html'"
         >
           회원가입
         </button>
-        <!-- 회원가입 클릭시 페이지이동 -->
-        <!-- 로그인버튼 클릭시 등장 -->
+        <!--로그인버튼 클릭 시 등장-->
         <form action="#" class="nav__login__form">
           <label for="id">아이디</label>
           <input type="text" name="id" id="id" />
@@ -59,7 +60,23 @@
 
     <!--Main content-->
     <main>
-      <div class="sandBox"></div>
+      <div class="mainBox">
+        <!--누르면 유틸 등장-->
+        <button class="mainBox__expandUtill">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <div class="mainBox__utilities">
+          <button class="mainBox__utilities__addBox">
+            <i class="fa-solid fa-box"></i>
+          </button>
+          <button class="mainBox__utilities__removeBox">
+            <i class="fa-solid fa-x"></i>
+          </button>
+          <button class="mainBox__utilities__adjBox">
+            <i class="fa-solid fa-hands"></i>
+          </button>
+        </div>
+      </div>
     </main>
 
     <!--Footer-->
