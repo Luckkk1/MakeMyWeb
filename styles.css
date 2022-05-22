@@ -42,11 +42,15 @@ a {
 
 nav {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-light-blue);
   font-size: var(--size-font-md);
+  width: 100%;
   padding: 0.6rem;
+  top: 0px;
+  z-index: 1;
 }
 
 .nav__logo {
@@ -101,12 +105,13 @@ nav {
 
 .mainBox__utillContainer {
   position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   font-size: var(--size-font-base);
   background-color: var(--color-grey);
-  top: 0.2em;
-  right: 0.5em;
+  top: 40%;
+  right: 1em;
 }
 
 .mainBox__utilities {
