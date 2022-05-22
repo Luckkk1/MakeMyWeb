@@ -1,13 +1,19 @@
 /* 글로벌 세팅 */
 :root {
   /* 색상 */
-  --color--dark--navy: #22223b;
-  --color--light--green: #06d6a0;
-  --color--white: #edede9;
+  --color-light-blue: #0096c7;
+  --color-light-green: #06d6a0;
+  --color-white: #edede9;
+  --color-light-grey: #e9ecef;
+  --color-grey: #6c757d;
 
   /* 폰트크기 */
   --size-font-sm: 0.8rem;
   --size-font-md: 1.5rem;
+  --size-font-base: 1rem;
+
+  /* 크기 */
+  --size-mainUtill-icon: 2em;
 }
 
 * {
@@ -36,7 +42,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color--dark--navy);
+  background-color: var(--color-light-blue);
   font-size: var(--size-font-md);
   padding: 0.6rem;
 }
@@ -47,11 +53,11 @@ nav {
 }
 
 .nav__logo__icon {
-  color: var(--color--light--green);
+  color: var(--color-light-green);
 }
 
 .nav__logo__webName {
-  color: var(--color--white);
+  color: var(--color-white);
   margin-left: 0.2em;
 }
 
@@ -64,7 +70,7 @@ nav {
 
 .nav___menuContainer__menu {
   padding: 0 1em;
-  color: var(--color--white);
+  color: var(--color-white);
 }
 
 .nav__menuBtnContainer__login {
@@ -74,12 +80,61 @@ nav {
 }
 
 .nav__menuBtnContainer__login__loginBtn {
-  border-right: 0.05em solid var(--color--white);
-  color: var(--color--white);
+  border-right: 0.05em solid var(--color-white);
+  color: var(--color-white);
   padding-right: 0.5em;
 }
 
 .nav__menuBtnContainer__login__regiBtn {
-  color: var(--color--white);
+  color: var(--color-white);
   padding-left: 0.5em;
+}
+
+/* main */
+
+.mainBox {
+  position: relative;
+  background-color: var(--color-light-grey);
+}
+
+.mainBox__utillContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--size-font-base);
+  background-color: var(--color-grey);
+  top: 0.2em;
+  right: 0.5em;
+}
+
+.mainBox__utilities {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--size-font-base);
+}
+
+.mainBox__expandUtill {
+  font-size: var(--size-mainUtill-icon);
+  color: var(--color-white);
+}
+
+.mainBox__utilities__addBox {
+  font-size: var(--size-mainUtill-icon);
+  color: var(--color-white);
+}
+
+.mainBox__utilities__adjBox {
+  font-size: var(--size-mainUtill-icon);
+  color: var(--color-white);
+}
+
+.mainBox__utilities__removeBox {
+  font-size: var(--size-mainUtill-icon);
+  color: var(--color-white);
+}
+
+.test {
+  background-color: purple;
+  width: 500px;
+  height: 500px;
 }
