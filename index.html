@@ -70,9 +70,9 @@
             </div>
           </div>
           <!-- 예시 박스 -->
-          <div class="box1">
+          <div class="mainBox__toDo" draggable="true">
             <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
+              <div class="box__nav__webName">To-do List</div>
               <div class="box__nav__btnCategory">
                 <button class="box__nav__miniBtn">
                   <i class="fa-solid fa-minus"></i>
@@ -82,8 +82,18 @@
                 </button>
               </div>
             </div>
+            <div class="box__content__toDo">
+              <div class="toDo__form">
+                <form action="/data">
+                  <label for="toDo">해야 할 일:</label>
+                  <input type="text" name="toDo" placeholder="해야 할 일" />
+                </form>
+              </div>
+              <div class="toDo__notYet"></div>
+              <div class="toDo__done"></div>
+            </div>
           </div>
-          <div class="box2">
+          <div class="box2" draggable="true">
             <div class="box__nav">
               <div class="box__nav__webName">currName</div>
               <div class="box__nav__btnCategory">
