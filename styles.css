@@ -7,6 +7,10 @@
   --color-light-grey: #e9ecef;
   --color-grey: #6c757d;
   --color-red: #bf0603;
+  --color-light-red: #ff595e;
+  --color-yellow: #ffca3a;
+  --color-green: #8ac926;
+  --color-blue: #1982c4;
 
   /* 폰트크기 */
   --size-font-xsm: 0.8rem;
@@ -162,7 +166,7 @@ main {
 .box {
   background-color: var(--color-light-grey);
   resize: both;
-  overflow: auto;
+  overflow: hidden;
   width: 32em;
   height: 32em;
   min-width: 400px;
@@ -251,13 +255,15 @@ main {
   gap: 0.25em;
   height: 100%;
   padding: 0.5em;
+  padding-bottom: 1.7em;
 }
 
 .calc__container input {
   font-size: 1.2rem;
+  cursor: pointer;
 }
 .calc__container input:hover {
-  box-shadow: 0.062em 0.062em 5px red;
+  box-shadow: 0.062em 0.062em 5px var(--color-light-red);
   transition: all ease-in 200ms;
 }
 
@@ -267,20 +273,20 @@ main {
 }
 
 .calc__reset {
-  background-color: #ff595e;
+  background-color: var(--color-light-red);
   grid-column: 1/ 4;
 }
 
 .calc__symbol {
-  background-color: #ffca3a;
+  background-color: var(--color-yellow);
 }
 
 .calc__dot {
-  background-color: #8ac926;
+  background-color: var(--color-green);
 }
 
 .calc__result {
-  background-color: #1982c4;
+  background-color: var(--color-blue);
   grid-column: 3/5;
 }
 /* footer */
