@@ -11,6 +11,10 @@ miniBtns.forEach((btn) => {
       if (btn.dataset.key === box.dataset.value) {
         box.style.height = "25em";
         box.style.width = "25em";
+        box.style.transition = "all linear 300ms";
+        setTimeout(() => {
+          box.style.transition = "";
+        }, 300);
       }
     }
   });
