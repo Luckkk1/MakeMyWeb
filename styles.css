@@ -119,6 +119,7 @@ main {
   margin-top: 3em;
 }
 
+/* main__sideUtill */
 .mainBox__utillContainer {
   position: absolute;
   position: fixed;
@@ -156,7 +157,9 @@ main {
   color: var(--color-white);
 }
 
-.mainBox__toDo {
+/* main__content */
+
+.box {
   background-color: var(--color-light-grey);
   resize: both;
   overflow: auto;
@@ -167,14 +170,10 @@ main {
   border: 1px var(--color-grey) solid;
 }
 
-.box2 {
-  display: none;
+/* main__content__toDo */
+
+.mainBox__toDo {
   background-color: var(--color-light-grey);
-  resize: both;
-  overflow: auto;
-  width: 500px;
-  height: 500px;
-  border: 1px var(--color-grey) solid;
 }
 
 .box__nav {
@@ -202,12 +201,12 @@ main {
   color: var(--color-red);
 }
 
-.box__content__toDo {
+.toDo__content {
   text-align: center;
   justify-content: center;
 }
 
-.toDo__form {
+.toDo__content__form {
   padding: 2em;
 }
 
@@ -215,7 +214,7 @@ main {
   text-align: center;
 }
 
-.toDo__container {
+.toDo__content__container {
   display: flex;
   height: 100vh;
   border-top: 1px var(--color-grey) solid;
@@ -242,6 +241,8 @@ main {
 .toDo__ul__li {
   padding-top: 0.5em;
 }
+
+/* main__content__calc */
 
 /* footer */
 
