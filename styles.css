@@ -169,8 +169,8 @@ main {
   overflow: hidden;
   width: 32em;
   height: 32em;
-  min-width: 400px;
-  min-height: 400px;
+  min-width: 25em;
+  min-height: 25em;
   border: 1px var(--color-grey) solid;
   font-size: var(--size-font-base);
 }
@@ -213,10 +213,13 @@ main {
 
 .toDo__content__form {
   padding: 2em;
+  padding-bottom: 1.5em;
 }
 
 #toDoInput {
   text-align: center;
+  width: 100%;
+  margin-top: 1em;
 }
 
 .toDo__content__container {

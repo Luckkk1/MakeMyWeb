@@ -71,11 +71,11 @@
           </div>
 
           <!-- toDo 박스 -->
-          <div class="mainBox__toDo box" draggable="true">
+          <div class="mainBox__toDo box" draggable="true" data-value="toDo">
             <div class="box__nav">
               <div class="box__nav__webName">To-do List</div>
               <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
+                <button class="box__nav__miniBtn miniBtn" data-key="toDo">
                   <i class="fa-solid fa-minus"></i>
                 </button>
                 <button class="box__nav__quitBtn">
@@ -85,7 +85,7 @@
             </div>
             <div class="toDo__content">
               <div class="toDo__content__form">
-                <form action="/data">
+                <form name="toDoForm">
                   <label for="toDo">오늘은 무엇을 하실 건가요? :</label>
                   <input
                     id="toDoInput"
@@ -119,11 +119,11 @@
           </div>
 
           <!-- 계산기 박스 -->
-          <div class="mainBox__clac box" draggable="true">
+          <div class="mainBox__calc box" draggable="true" data-value="calc">
             <div class="box__nav">
               <div class="box__nav__webName">계산기</div>
               <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
+                <button class="box__nav__miniBtn miniBtn" data-key="calc">
                   <i class="fa-solid fa-minus"></i>
                 </button>
                 <button class="box__nav__quitBtn">
@@ -131,7 +131,7 @@
                 </button>
               </div>
             </div>
-            <form class="calc__container">
+            <form class="calc__container content">
               <input type="text" class="calc__output" readonly />
               <input type="button" class="calc__reset" value="C" />
               <input type="button" class="calc__symbol" value="/" />
