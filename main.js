@@ -30,3 +30,14 @@ quitBtns.forEach((btn) => {
     }
   });
 });
+
+// content box 나가기 버튼 클릭 시 삭제
+quitBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    for (let box of boxes) {
+      if (btn.dataset.key === box.dataset.value) {
+        box.style.display = "none";
+      }
+    }
+  });
+});
