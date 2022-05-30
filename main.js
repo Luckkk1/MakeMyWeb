@@ -108,6 +108,7 @@ calcResetBtn.addEventListener("click", () => {
   calcOutput.value = "";
 });
 
+// 계산기 결과버튼
 calcResultBtn.addEventListener("click", () => {
   try {
     calcOutput.value = eval(calcOutput.value);
@@ -116,3 +117,5 @@ calcResultBtn.addEventListener("click", () => {
     calcOutput.value = "";
   }
 });
+
+// <BTC PRICE>

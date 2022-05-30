@@ -21,6 +21,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap"
       rel="stylesheet"
     />
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div id="wrap">
@@ -142,7 +144,27 @@
               <input type="button" class="calc__result" value="=" />
             </form>
           </div>
-          <!-- <div class="mainBox__clac" draggable="true">
+
+          <!-- 비트가격박스 -->
+          <div class="mainBox__btcPrice box" draggable="true">
+            <div class="box__nav">
+              <div class="box__nav__webName">비트코인 시세</div>
+              <div class="box__nav__btnCategory">
+                <button class="box__nav__miniBtn">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <button class="box__nav__quitBtn">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+              </div>
+            </div>
+            <div class="btcPrice__container">
+              <p class="btc__description">현재 가격은...</p>
+              <h1 class="btc__price"></h1>
+              <p class="btc__description">입니다.</p>
+            </div>
+          </div>
+          <!-- <div class="mainBox__clac box" draggable="true">
             <div class="box__nav">
               <div class="box__nav__webName">currName</div>
               <div class="box__nav__btnCategory">
@@ -155,46 +177,7 @@
               </div>
             </div>
           </div>
-          <div class="mainBox__clac" draggable="true">
-            <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
-              <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="box__nav__quitBtn">
-                  <i class="fa-solid fa-x"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mainBox__clac" draggable="true">
-            <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
-              <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="box__nav__quitBtn">
-                  <i class="fa-solid fa-x"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mainBox__clac" draggable="true">
-            <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
-              <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="box__nav__quitBtn">
-                  <i class="fa-solid fa-x"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mainBox__clac" draggable="true">
+          <div class="mainBox__clac box" draggable="true">
             <div class="box__nav">
               <div class="box__nav__webName">currName</div>
               <div class="box__nav__btnCategory">
