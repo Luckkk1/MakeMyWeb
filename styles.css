@@ -18,6 +18,12 @@
   --size-font-md: 1.5rem;
   --size-font-base: 1rem;
 
+  /* 폰트굵기 */
+  --wght-font-sm: 100;
+  --wght-font-md: 300;
+  --wght-font-lg: 500;
+  --wght-font-xl: 700;
+
   /* 크기 */
   --size-mainUtill-icon: 2em;
 
@@ -301,6 +307,39 @@ main {
 .calc__result {
   background-color: var(--color-blue);
   grid-column: 3/5;
+}
+
+/* main__content__btcPrice */
+
+.btcPrice__container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 4em;
+  font-size: var(--size-font-base);
+}
+
+.btc__date {
+  position: absolute;
+  font-weight: var(--wght-font-md);
+  top: 0.5em;
+  left: 0.3em;
+}
+
+.btcPrice__container h2 {
+  font-size: 2em;
+  font-weight: var(--wght-font-lg);
+}
+
+.btcPrice__container h1 {
+  font-size: 4em;
+  padding: 0.5em 0;
+  text-align: center;
+  font-weight: var(--wght-font-xl);
 }
 /* footer */
 
