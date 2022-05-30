@@ -242,11 +242,16 @@ main {
   border-bottom: 1px var(--color-grey) solid;
 }
 
+.toDo__ul__yet {
+  display: flex;
+  flex-direction: column;
+}
+
 .toDo__ul:first-child {
   border-right: 1px var(--color-grey) solid;
 }
 
-.toDo__ul__li {
+.toDo__li {
   padding-top: 0.5em;
 }
 

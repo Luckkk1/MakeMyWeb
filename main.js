@@ -40,27 +40,37 @@ const toDoDoneCont = document.querySelector(".toDo__ul__done");
 // toDo List 해야할 일 추가
 toDoForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // const toDo
-  const toDoLiYet = document.createElement("li");
-  toDoLiYet.className = "toDo__yet__li";
-  toDoLiYet.innerText = toDoInput.value;
-  toDoYetCont.append(toDoLiYet);
-  toDoForm.reset();
+  if (toDoInput.value === "") {
+    alert("값을 입력해주세요");
+  } else {
+    const toDoLiYet = document.createElement("li");
+    toDoLiYet.className = "toDo__li";
+    toDoLiYet.innerText = toDoInput.value;
+    toDoYetCont.append(toDoLiYet);
+    toDoForm.reset();
+  }
 });
+
+// toDo List 제거 함수
+function removeLi(e) {
+  e.target.innerHTML = "";
+  e.target.style.padding = "0px";
+}
 
 // Yet List 클릭 시 Done List로 이동 후 Yet에서 삭제
 toDoYetCont.addEventListener("click", (e) => {
   if (e.target.nodeName === "LI") {
     const toDoLiDone = document.createElement("li");
-    toDoLiDone.className = "toDo__done__li";
+    toDoLiDone.className = "toDo__li";
     toDoLiDone.innerText = e.target.outerText;
     toDoDoneCont.append(toDoLiDone);
-    e.target.innerHTML = "";
+    removeLi(e);
   }
 });
 
+// Done List 클릭 시 삭제
 toDoDoneCont.addEventListener("click", (e) => {
   if (e.target.nodeName === "LI") {
-    e.target.innerHTML = "";
+    removeLi(e);
   }
 });
