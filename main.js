@@ -139,3 +139,30 @@ fetchBTCPrice();
 setInterval(() => {
   fetchBTCPrice();
 }, 10000);
+
+// <Saech Engine>
+const radioBtns = document.querySelectorAll("input[name='searchEngine']");
+const searchInput = document.querySelector(".searchInput");
+const searchForm = document.querySelector("#searchForm");
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const currEngine = searchForm.elements.searchEngine.value;
+  const naverEng = `https://search.naver.com/search.naver?ie=UTF-8&query=${searchInput.value}`;
+  const googleEng = `https://www.google.com/search?q=${searchInput.value}`;
+
+  // url 여는 함수
+  function openUrl(url) {
+    window.open(url);
+  }
+
+  // 라디오박스 체크하면 해당 검색엔진 적용
+  if (currEngine === "") {
+    alert("값을 입력해주세요");
+  } else if (currEngine === "naver") {
+    openUrl(naverEng);
+  } else if (currEngine === "google") {
+    openUrl(googleEng);
+  }
+  searchForm.reset();
+});
