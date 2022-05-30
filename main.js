@@ -1,5 +1,6 @@
 "use strict";
 
+// <NAVBAR>
 const miniBtns = document.querySelectorAll(".miniBtn");
 const quitBtns = document.querySelectorAll(".quitBtn");
 const boxes = document.querySelectorAll(".box");
@@ -32,6 +33,7 @@ quitBtns.forEach((btn) => {
   });
 });
 
+// <TO-DO LIST>
 const toDoForm = document.querySelector("#toDoForm");
 const toDoInput = document.querySelector("#toDoInput");
 const toDoYetCont = document.querySelector(".toDo__ul__yet");
@@ -79,5 +81,38 @@ toDoYetCont.addEventListener("click", (e) => {
 toDoDoneCont.addEventListener("click", (e) => {
   if (e.target.nodeName === "LI") {
     removeLi(e);
+  }
+});
+
+// <CALCULATOR>
+const calcForm = document.querySelector(".calc__container");
+const calcOutput = document.querySelector(".calc__output");
+const calcInBtns = document.querySelectorAll(".calc__container input.in");
+const calcResetBtn = document.querySelector(".calc__reset");
+const calcResultBtn = document.querySelector(".calc__result");
+
+// form action 억제
+calcForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+// 계산기 숫자 기호 버튼
+for (let btn of calcInBtns) {
+  btn.addEventListener("click", () => {
+    calcOutput.value += btn.value;
+  });
+}
+
+// 계산기 캔슬버튼
+calcResetBtn.addEventListener("click", () => {
+  calcOutput.value = "";
+});
+
+calcResultBtn.addEventListener("click", () => {
+  try {
+    calcOutput.value = eval(calcOutput.value);
+  } catch {
+    alert("올바른 식을 입력해주세요!");
+    calcOutput.value = "";
   }
 });
