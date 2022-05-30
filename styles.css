@@ -16,6 +16,7 @@
   --size-font-xsm: 0.8rem;
   --size-font-sm: 1.2rem;
   --size-font-md: 1.5rem;
+  --size-font-lg: 1.8rem;
   --size-font-base: 1rem;
 
   /* 폰트굵기 */
@@ -320,7 +321,6 @@ main {
   width: 100%;
   height: 100%;
   padding: 4em;
-  font-size: var(--size-font-base);
 }
 
 .btc__date {
@@ -355,6 +355,52 @@ main {
   right: 0.3em;
   font-weight: var(--wght-font-md);
 }
+
+/*main__content__search */
+#searchForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.searchRadio label,
+.searchRadio input {
+  cursor: pointer;
+}
+
+.searchRadio {
+  font-size: var(--size-font-lg);
+  margin-bottom: 1em;
+}
+
+#naverSearch {
+  margin-right: 0.5em;
+}
+
+#googleSearch {
+  margin-left: 0.5em;
+}
+
+.searchInputAndBtn {
+  width: 100%;
+}
+
+.searchInput {
+  text-align: center;
+  height: 2em;
+  font-size: var(--size-font-md);
+}
+
+.searchBtn {
+  font-size: var(--size-font-md);
+  background-color: var(--color-blue);
+  border-radius: 2px;
+  padding: 0.45em;
+}
+
 /* footer */
 
 footer {
