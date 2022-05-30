@@ -341,6 +341,18 @@ main {
   text-align: center;
   font-weight: var(--wght-font-xl);
 }
+
+.btc-base {
+  position: absolute;
+  bottom: 1.8em;
+  left: 0.3em;
+}
+
+.btc-interval {
+  position: absolute;
+  bottom: 1.8em;
+  right: 0.3em;
+}
 /* footer */
 
 footer {

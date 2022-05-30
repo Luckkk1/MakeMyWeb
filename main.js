@@ -119,3 +119,23 @@ calcResultBtn.addEventListener("click", () => {
 });
 
 // <BTC PRICE>
+const btcPrice = document.querySelector(".btc__price");
+const btcCurrDate = document.querySelector(".btc__date");
+
+// btc box 현재시간
+setInterval(() => {
+  btcCurrDate.innerText = Date();
+}, 1000);
+
+async function fetchBTCPrice() {
+  const res = await axios.get(
+    "https://api.coinbase.com/v2/prices/spot?currency=USD"
+  );
+  const CurrPrice = res.data.data.amount;
+  btcPrice.innerText = CurrPrice;
+}
+
+fetchBTCPrice();
+setInterval(() => {
+  fetchBTCPrice();
+}, 10000);
