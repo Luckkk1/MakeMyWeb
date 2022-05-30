@@ -51,6 +51,13 @@ toDoForm.addEventListener("submit", (e) => {
   }
 });
 
+// toDo List Hover 효과 추가
+toDoYetCont.addEventListener("mouseover", (e) => {
+  if (e.target.nodeName === "Li") {
+    e.target.setAttribute("class", "hover");
+  }
+});
+
 // toDo List 제거 함수
 function removeLi(e) {
   e.target.innerHTML = "";

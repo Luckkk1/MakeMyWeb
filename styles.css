@@ -255,6 +255,10 @@ main {
   padding-top: 0.5em;
 }
 
+.toDo__li:hover {
+  background-color: var(--color-yellow);
+}
+
 /* main__content__calc */
 
 .calc__container {
