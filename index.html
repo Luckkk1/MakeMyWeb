@@ -146,14 +146,14 @@
           </div>
 
           <!-- 비트가격박스 -->
-          <div class="mainBox__btcPrice box" draggable="true">
+          <div class="mainBox__btcPrice box" draggable="true" data-value="btc">
             <div class="box__nav">
               <div class="box__nav__webName">비트코인 시세</div>
               <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
+                <button class="box__nav__miniBtn miniBtn" data-key="btc">
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <button class="box__nav__quitBtn">
+                <button class="box__nav__quitBtn quitBtn" data-key="btc">
                   <i class="fa-solid fa-x"></i>
                 </button>
               </div>
@@ -167,20 +167,42 @@
               <p class="btc-interval">*10초마다 갱신됩니다.</p>
             </div>
           </div>
-          <!-- <div class="mainBox__clac box" draggable="true">
+
+          <!-- 검색박스 -->
+          <div class="mainBox__search box" draggable="true" data-value="search">
             <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
+              <div class="box__nav__webName">검색엔진</div>
               <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
+                <button class="box__nav__miniBtn miniBtn" data-key="search">
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <button class="box__nav__quitBtn">
+                <button class="box__nav__quitBtn quitBtn" data-key="search">
                   <i class="fa-solid fa-x"></i>
                 </button>
               </div>
             </div>
+            <form name="searchForm" id="searchForm">
+              <div class="searchRadio">
+                <label for="naverSearch">네이버</label>
+                <input
+                  type="radio"
+                  id="naverSearch"
+                  name="searchEngine"
+                  value="naver"
+                />
+                <label for="googleSearch">구글</label>
+                <input
+                  type="radio"
+                  id="googleSearch"
+                  name="searchEngine"
+                  value="google"
+                />
+              </div>
+              <input type="text" placeholder="검색해보세요!" />
+              <button type="submit">검색</button>
+            </form>
           </div>
-          <div class="mainBox__clac box" draggable="true">
+          <!-- <div class="mainBox__clac box" draggable="true">
             <div class="box__nav">
               <div class="box__nav__webName">currName</div>
               <div class="box__nav__btnCategory">

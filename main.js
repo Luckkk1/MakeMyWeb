@@ -1,6 +1,6 @@
 "use strict";
 
-// <NAVBAR>
+// <BOX__NAVBAR>
 const miniBtns = document.querySelectorAll(".miniBtn");
 const quitBtns = document.querySelectorAll(".quitBtn");
 const boxes = document.querySelectorAll(".box");
