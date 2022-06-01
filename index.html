@@ -223,22 +223,20 @@
               </div>
             </div>
 
-            <form name="colorForm">
+            <form name="colorForm" class="colorForm">
               <div class="colorInput">
-                <label for="rgbInput">RGB:</label>
+                <label for="rgbInput">RGB :</label>
                 <input type="text" name="rgbInput" />
                 <div class="colorShow"></div>
-                <p>HEX: ##8888</p>
+                <p class="colorForm__hex">*HEX: ##8888</p>
+                <p class="colorForm__description">*입력 양식: 124 56 82</p>
               </div>
-            </form>
-            <form name="colorBtn">
-              <input type="button" value="상단,하단 메뉴 색변경" />
-              <input type="button" value="배경색 변경" />
-              <input type="button" value="폰트색 변경" />
-              <input type="button" value="반대색 찾기" />
-              <input type="button" value="랜덤색 추천" />
-              <div class="colorBtn__rgba">
-                <input type="number" />
+              <div class="colorBtns">
+                <input type="button" value="상단,하단 메뉴 색변경" />
+                <input type="button" value="배경색 변경" />
+                <input type="button" value="폰트색 변경" />
+                <input type="button" value="반대색 찾기" />
+                <input type="button" value="랜덤색 추천" />
                 <input type="button" value="투명도 조절" />
               </div>
             </form>

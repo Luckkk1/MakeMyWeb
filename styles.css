@@ -402,6 +402,55 @@ main {
   padding: 0.45em;
 }
 
+/* main__content__color */
+.colorForm {
+  height: 100%;
+}
+
+.colorInput {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--size-font-md);
+  font-weight: var(--wght-font-md);
+  height: 30%;
+}
+
+.colorInput label:first-child {
+  margin-right: 0.25em;
+}
+
+.colorShow {
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  margin-left: 0.25em;
+}
+
+.colorForm__hex {
+  position: absolute;
+  font-size: var(--size-font-xsm);
+  right: 0.5em;
+}
+
+.colorForm__description {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.2em;
+  font-size: var(--size-font-xsm);
+}
+
+.colorBtns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 65%;
+}
+
+.colorBtns input {
+  font-size: var(--size-font-sm);
+}
+
 /* footer */
 
 footer {
