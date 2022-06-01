@@ -169,3 +169,56 @@ searchForm.addEventListener("submit", (e) => {
   }
   searchForm.reset();
 });
+
+// <Color Box>
+
+// rgb변환 class
+class Color {
+  constructor(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+  }
+
+  hex() {
+    const { r, g, b } = this;
+    return `${r},${g},${b}`;
+  }
+
+  hex() {
+    const { r, g, b } = this;
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+
+  rgb(a = 1) {
+    const { r, g, b } = this;
+    return `${r},${g},${b},${a}`;
+  }
+}
+const colorForm = document.querySelector(".colorForm");
+const rgbInput = document.querySelector(".rgbInput");
+const colorShow = document.querySelector(".colorShow");
+const inputToHex = document.querySelector(".colorForm__hex");
+
+// form제출 억제
+colorForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+rgbInput.addEventListener("change", (e) => {
+  e.preventDefault();
+  const inputToNum = rgbInput.value.split(" ");
+  const r = +inputToNum[0];
+  const g = +inputToNum[1];
+  const b = +inputToNum[2];
+
+  // rgb input 숫자 범위 제한 // input 값 hex로 전환, 색 미리보기
+  if (r > 255 || g > 255 || b > 255 || r < 0 || g < 0 || b < 0) {
+    alert("숫자의 범위: 0 ~ 255");
+    rgbInput.value = "";
+  } else {
+    const rgbColor = new Color(r, g, b);
+    inputToHex.innerText = `*HEX:${rgbColor.hex()}`;
+    colorShow.style.backgroundColor = rgbColor.hex();
+  }
+});

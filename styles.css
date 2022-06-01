@@ -417,10 +417,6 @@ main {
   height: 30%;
 }
 
-.colorInput label:first-child {
-  margin-right: 0.25em;
-}
-
 .colorShow {
   width: 1em;
   height: 1em;
@@ -444,7 +440,7 @@ main {
 .colorBtns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 65%;
+  height: 66%;
 }
 
 .colorBtns input {
