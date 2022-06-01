@@ -180,6 +180,11 @@ class Color {
     this.b = b;
   }
 
+  rgb() {
+    const { r, g, b } = this;
+    return `rgb(${r},${g},${b})`;
+  }
+
   hex() {
     const { r, g, b } = this;
     return `${r},${g},${b}`;
@@ -190,21 +195,45 @@ class Color {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
 
-  rgb(a = 1) {
+  rgba(a = 1) {
     const { r, g, b } = this;
-    return `${r},${g},${b},${a}`;
+    return `rgba(${r},${g},${b},${a})`;
+  }
+
+  random() {
+    let { r, g, b } = this;
+    r = Math.floor(Math.random() * 256) + 1;
+    g = Math.floor(Math.random() * 256) + 1;
+    b = Math.floor(Math.random() * 256) + 1;
+    return `${r} ${g} ${b}`;
+  }
+
+  opposite() {
+    let { r, g, b } = this;
+    r = 255 - ((r + 255) % 255);
+    g = 255 - ((g + 255) % 255);
+    b = 255 - ((b + 255) % 255);
+    return `rgb(${r},${g},${b})`;
   }
 }
+
 const colorForm = document.querySelector(".colorForm");
 const rgbInput = document.querySelector(".rgbInput");
 const colorShow = document.querySelector(".colorShow");
 const inputToHex = document.querySelector(".colorForm__hex");
+const menuColCng = document.querySelector(".menuColCng");
+const backCng = document.querySelector(".backCng");
+const randCng = document.querySelector(".randCng");
+const oppoBtn = document.querySelector(".oppoBtn");
+const fontBtn = document.querySelector(".fontBtn");
+const opaBtn = document.querySelector(".opaBtn");
 
 // form제출 억제
 colorForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+// 색깔 박스 버튼 효과
 rgbInput.addEventListener("change", (e) => {
   e.preventDefault();
   const inputToNum = rgbInput.value.split(" ");
@@ -212,13 +241,107 @@ rgbInput.addEventListener("change", (e) => {
   const g = +inputToNum[1];
   const b = +inputToNum[2];
 
-  // rgb input 숫자 범위 제한 // input 값 hex로 전환, 색 미리보기
+  // rgb input 숫자 범위 제한
   if (r > 255 || g > 255 || b > 255 || r < 0 || g < 0 || b < 0) {
     alert("숫자의 범위: 0 ~ 255");
     rgbInput.value = "";
-  } else {
-    const rgbColor = new Color(r, g, b);
-    inputToHex.innerText = `*HEX:${rgbColor.hex()}`;
-    colorShow.style.backgroundColor = rgbColor.hex();
   }
+  let rgbColor = new Color(r, g, b);
+  // input 값 hex로 전환
+  inputToHex.innerText = `*HEX:${rgbColor.hex()}`;
+  //  색 미리보기
+  colorShow.style.backgroundColor = rgbColor.hex();
+
+  const rgb = rgbColor.rgb();
+  const oppo = rgbColor.opposite();
+
+  // hover 중첩함수 => 배경변경, 폰트 색 자동변경, 초기화
+  function hoverInner(t, type) {
+    t.addEventListener("mouseover", () => {
+      t.style.backgroundColor = type;
+      if (r + g + b < 400) {
+        t.style.color = "white";
+      } else {
+        t.style.color = "black";
+      }
+    });
+    t.addEventListener("mouseout", () => {
+      t.style.backgroundColor = "";
+      t.style.color = "";
+    });
+  }
+
+  // 기본고차함수
+  function hoverBtn(t) {
+    hoverInner(t, rgb);
+  }
+
+  // 반대값찾기 호버 함수
+  function hoverOppoBtn(t) {
+    t.addEventListener("mouseover", () => {
+      t.style.backgroundColor = rgbColor.opposite();
+      if (r + g + b > 400) {
+        t.style.color = "white";
+      } else {
+        t.style.color = "black";
+      }
+    });
+    t.addEventListener("mouseout", () => {
+      t.style.backgroundColor = "";
+      t.style.color = "";
+    });
+  }
+
+  // 랜덤값 호버함수
+  function hoverRanBtn(t) {
+    t.addEventListener("mouseover", () => {
+      const rand = rgbColor.random().split(" ");
+      t.style.backgroundColor = `rgb(${+rand[0]},${+rand[1]},${+rand[2]})`;
+      if (+rand[0] + +rand[1] + +rand[2] < 400) {
+        t.style.color = "white";
+      } else {
+        t.style.color = "black";
+      }
+    });
+    t.addEventListener("mouseout", () => {
+      t.style.backgroundColor = "";
+      t.style.color = "";
+    });
+  }
+
+  // 투명도 호버함수
+  function hoverOpaBtn(t, opacity) {
+    t.addEventListener("mouseover", () => {
+      t.style.backgroundColor = rgbColor.rgba(opacity);
+      if (r + g + b < 400) {
+        t.style.color = "white";
+      } else {
+        t.style.color = "black";
+      }
+    });
+    t.addEventListener("mouseout", () => {
+      t.style.backgroundColor = "";
+      t.style.color = "";
+    });
+  }
+
+  // nav footer 버튼 호버
+  hoverBtn(menuColCng);
+  // 배경색 버튼 호버
+  hoverBtn(backCng);
+  // 랜덤색 버튼 호버
+  hoverRanBtn(randCng);
+  // 반대색 버튼 호버
+  hoverOppoBtn(oppoBtn);
+  // 폰트색 버튼 호버
+  hoverBtn(fontBtn);
+
+  // 투명도 버튼 클릭시 투명도 조절
+  opaBtn.addEventListener("click", () => {
+    let opaInput = prompt("0 ~ 1.0 사이의 수를 입력해주세요.");
+    while (opaInput > 1 || opaInput < 0) {
+      opaInput = prompt("0 ~ 1.0 사이의 수를 입력해주세요.");
+    }
+    hoverOpaBtn(opaBtn, +opaInput);
+  });
 });

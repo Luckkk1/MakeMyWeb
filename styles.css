@@ -462,6 +462,7 @@ footer {
 }
 
 .foot__logo__webName {
+  color: var(--color-white);
   font-size: 3em;
   padding: 1em 0;
 }
