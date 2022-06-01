@@ -127,6 +127,7 @@ setInterval(() => {
   btcCurrDate.innerText = Date();
 }, 1000);
 
+// 가격 불러오기
 async function fetchBTCPrice() {
   const res = await axios.get(
     "https://api.coinbase.com/v2/prices/spot?currency=USD"
@@ -135,6 +136,7 @@ async function fetchBTCPrice() {
   btcPrice.innerText = CurrPrice;
 }
 
+// 10초마다 갱신
 fetchBTCPrice();
 setInterval(() => {
   fetchBTCPrice();
@@ -145,6 +147,7 @@ const radioBtns = document.querySelectorAll("input[name='searchEngine']");
 const searchInput = document.querySelector(".searchInput");
 const searchForm = document.querySelector("#searchForm");
 
+// 제출할 때 작동
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const currEngine = searchForm.elements.searchEngine.value;

@@ -200,27 +200,49 @@
               </div>
               <div class="searchInputAndBtn">
                 <input
-                type="text"
-                class="searchInput"
-                placeholder="검색해보세요!"
-              />
-              <button class="searchBtn"type="submit">검색</button>
-            </form>
+                  type="text"
+                  class="searchInput"
+                  placeholder="검색해보세요!"
+                />
+                <button class="searchBtn" type="submit">검색</button>
               </div>
+            </form>
           </div>
-          <!-- <div class="mainBox__clac box" draggable="true">
+
+          <!-- 컬러박스 -->
+          <div class="mainBox__color box" draggable="true" data-value="color">
             <div class="box__nav">
-              <div class="box__nav__webName">currName</div>
+              <div class="box__nav__webName">색깔 바꾸기</div>
               <div class="box__nav__btnCategory">
-                <button class="box__nav__miniBtn">
+                <button class="box__nav__miniBtn miniBtn" data-key="color">
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <button class="box__nav__quitBtn">
+                <button class="box__nav__quitBtn quitBtn" data-key="color">
                   <i class="fa-solid fa-x"></i>
                 </button>
               </div>
             </div>
-          </div> -->
+
+            <form name="colorForm">
+              <div class="colorInput">
+                <label for="rgbInput">RGB:</label>
+                <input type="text" name="rgbInput" />
+                <div class="colorShow"></div>
+                <p>HEX: ##8888</p>
+              </div>
+            </form>
+            <form name="colorBtn">
+              <input type="button" value="상단,하단 메뉴 색변경" />
+              <input type="button" value="배경색 변경" />
+              <input type="button" value="폰트색 변경" />
+              <input type="button" value="반대색 찾기" />
+              <input type="button" value="랜덤색 추천" />
+              <div class="colorBtn__rgba">
+                <input type="number" />
+                <input type="button" value="투명도 조절" />
+              </div>
+            </form>
+          </div>
         </div>
       </main>
 

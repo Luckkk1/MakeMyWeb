@@ -369,6 +369,7 @@ main {
 .searchRadio label,
 .searchRadio input {
   cursor: pointer;
+  font-weight: var(--wght-font-lg);
 }
 
 .searchRadio {
