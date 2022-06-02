@@ -127,6 +127,8 @@ main {
 
 .mainBox {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 3em;
 }
 
@@ -172,10 +174,9 @@ main {
 
 .box {
   background-color: var(--color-light-grey);
-  resize: both;
   overflow: hidden;
-  width: 32em;
-  height: 32em;
+  width: 25em;
+  height: 25em;
   min-width: 25em;
   min-height: 25em;
   border: 1px var(--color-grey) solid;
@@ -493,4 +494,8 @@ footer {
 .foot__contact i {
   font-size: 2em;
   color: var(--color-white);
+}
+
+/* 위치정보 */
+.mainBox__toDo {
 }
