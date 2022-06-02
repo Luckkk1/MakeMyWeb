@@ -187,11 +187,6 @@ class Color {
 
   hex() {
     const { r, g, b } = this;
-    return `${r},${g},${b}`;
-  }
-
-  hex() {
-    const { r, g, b } = this;
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
 
@@ -210,10 +205,10 @@ class Color {
 
   opposite() {
     let { r, g, b } = this;
-    r = 255 - ((r + 255) % 255);
-    g = 255 - ((g + 255) % 255);
-    b = 255 - ((b + 255) % 255);
-    return `rgb(${r},${g},${b})`;
+    r = 255 - r;
+    g = 255 - g;
+    b = 255 - b;
+    return `${r} ${g} ${b}`;
   }
 }
 
@@ -252,10 +247,9 @@ rgbInput.addEventListener("change", (e) => {
   //  색 미리보기
   colorShow.style.backgroundColor = rgbColor.hex();
 
-  const rgb = rgbColor.rgb();
-  const oppo = rgbColor.opposite();
+  const rgba = rgbColor.rgba();
 
-  // hover 중첩함수 => 배경변경, 폰트 색 자동변경, 초기화
+  // hover 이너함수 => 배경변경, 폰트 색 자동변경, 초기화
   function hoverInner(t, type) {
     t.addEventListener("mouseover", () => {
       t.style.backgroundColor = type;
@@ -273,18 +267,37 @@ rgbInput.addEventListener("change", (e) => {
 
   // 기본고차함수
   function hoverBtn(t) {
-    hoverInner(t, rgb);
+    hoverInner(t, rgba);
   }
 
-  // 반대값찾기 호버 함수
+  // 반대값찾기 호버 함수, 클릭 시 다른 버튼과 연동
   function hoverOppoBtn(t) {
     t.addEventListener("mouseover", () => {
-      t.style.backgroundColor = rgbColor.opposite();
+      const inputValue = rgbInput.value.split(" ");
+      const currValue = new Color(
+        `${+inputValue[0]}`,
+        `${+inputValue[1]}`,
+        `${+inputValue[2]}`
+      );
+      const currOppValue = currValue.opposite();
+      const splitedOpp = currOppValue.split(" ");
+      const splitedOppInner = `${splitedOpp[0]},${splitedOpp[1]},${splitedOpp[2]}`;
+      const rgbOpp = `rgb(${splitedOppInner})`;
+
+      t.style.backgroundColor = rgbOpp;
       if (r + g + b > 400) {
         t.style.color = "white";
       } else {
         t.style.color = "black";
       }
+
+      oppoBtn.addEventListener("click", () => {
+        rgbInput.value = `${splitedOpp[0]} ${splitedOpp[1]} ${splitedOpp[2]}`;
+        colorShow.style.backgroundColor = rgbOpp;
+        hoverInner(menuColCng, rgbOpp);
+        hoverInner(backCng, rgbOpp);
+        hoverInner(fontBtn, rgbOpp);
+      });
     });
     t.addEventListener("mouseout", () => {
       t.style.backgroundColor = "";
@@ -292,16 +305,24 @@ rgbInput.addEventListener("change", (e) => {
     });
   }
 
-  // 랜덤값 호버함수
+  // 랜덤값 호버함수, 클릭 시 다른 버튼과 연동
   function hoverRanBtn(t) {
     t.addEventListener("mouseover", () => {
       const rand = rgbColor.random().split(" ");
-      t.style.backgroundColor = `rgb(${+rand[0]},${+rand[1]},${+rand[2]})`;
+      const randRgb = `rgb(${+rand[0]},${+rand[1]},${+rand[2]})`;
+      t.style.backgroundColor = randRgb;
       if (+rand[0] + +rand[1] + +rand[2] < 400) {
         t.style.color = "white";
       } else {
         t.style.color = "black";
       }
+      t.addEventListener("click", () => {
+        rgbInput.value = `${rand[0]} ${rand[1]} ${rand[2]}`;
+        colorShow.style.backgroundColor = `rgb(${rgbInput.value})`;
+        hoverInner(menuColCng, randRgb);
+        hoverInner(backCng, randRgb);
+        hoverInner(fontBtn, randRgb);
+      });
     });
     t.addEventListener("mouseout", () => {
       t.style.backgroundColor = "";
@@ -309,10 +330,12 @@ rgbInput.addEventListener("change", (e) => {
     });
   }
 
-  // 투명도 호버함수
+  // 투명도 호버함수, 다른 버튼과 연동
   function hoverOpaBtn(t, opacity) {
     t.addEventListener("mouseover", () => {
-      t.style.backgroundColor = rgbColor.rgba(opacity);
+      const inputValue = rgbInput.value.split(" ");
+      const currRgbaValue = `rgba(${inputValue[0]},${inputValue[1]},${inputValue[2]},${opacity})`;
+      t.style.backgroundColor = currRgbaValue;
       if (r + g + b < 400) {
         t.style.color = "white";
       } else {
@@ -320,6 +343,16 @@ rgbInput.addEventListener("change", (e) => {
       }
     });
     t.addEventListener("mouseout", () => {
+      const inputValue = rgbInput.value.split(" ");
+      const currRgbaValue = `rgba(${inputValue[0]},${inputValue[1]},${inputValue[2]},${opacity})`;
+
+      hoverInner(menuColCng, currRgbaValue);
+      hoverInner(backCng, currRgbaValue);
+      hoverInner(fontBtn, currRgbaValue);
+
+      colorShow.style.backgroundColor = currRgbaValue;
+      rgbInput.value = `${inputValue[0]} ${inputValue[1]} ${inputValue[2]} ${opacity}`;
+
       t.style.backgroundColor = "";
       t.style.color = "";
     });
@@ -329,12 +362,12 @@ rgbInput.addEventListener("change", (e) => {
   hoverBtn(menuColCng);
   // 배경색 버튼 호버
   hoverBtn(backCng);
+  // 폰트색 버튼 호버
+  hoverBtn(fontBtn);
   // 랜덤색 버튼 호버
   hoverRanBtn(randCng);
   // 반대색 버튼 호버
   hoverOppoBtn(oppoBtn);
-  // 폰트색 버튼 호버
-  hoverBtn(fontBtn);
 
   // 투명도 버튼 클릭시 투명도 조절
   opaBtn.addEventListener("click", () => {
@@ -342,6 +375,55 @@ rgbInput.addEventListener("change", (e) => {
     while (opaInput > 1 || opaInput < 0) {
       opaInput = prompt("0 ~ 1.0 사이의 수를 입력해주세요.");
     }
+    // 투명도 버튼 호버
     hoverOpaBtn(opaBtn, +opaInput);
+  });
+
+  // menuColBtn 클릭시 nav foot 색 변경
+  const navBar = document.querySelector("nav");
+  const footer = document.querySelector("footer");
+
+  // rgba 값이 있다면 rgba로 없다면 rgb로
+  menuColCng.addEventListener("click", () => {
+    const inputValue = rgbInput.value.split(" ");
+    const currRgbValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]})`;
+    const currRgbaValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]},${inputValue[3]})`;
+    if (!inputValue[3]) {
+      navBar.style.backgroundColor = currRgbValue;
+      footer.style.backgroundColor = currRgbValue;
+    } else {
+      navBar.style.backgroundColor = currRgbaValue;
+      footer.style.backgroundColor = currRgbaValue;
+    }
+  });
+
+  // backCng 클릭 시 배경색 변경
+  const body = document.querySelector("body");
+
+  backCng.addEventListener("click", () => {
+    const inputValue = rgbInput.value.split(" ");
+    const currRgbValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]})`;
+    const currRgbaValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]},${inputValue[3]})`;
+    if (!inputValue[3]) {
+      body.style.backgroundColor = currRgbValue;
+    } else {
+      body.style.backgroundColor = currRgbaValue;
+    }
+  });
+
+  fontBtn.addEventListener("click", () => {
+    const fontCng = document.querySelectorAll(".font");
+    console.log(fontCng);
+    const inputValue = rgbInput.value.split(" ");
+    const currRgbValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]})`;
+    const currRgbaValue = `rgb(${inputValue[0]},${inputValue[1]},${inputValue[2]},${inputValue[3]})`;
+
+    for (let font of fontCng) {
+      if (!inputValue[3]) {
+        font.style.color = currRgbValue;
+      } else {
+        font.style.color = currRgbaValue;
+      }
+    }
   });
 });
