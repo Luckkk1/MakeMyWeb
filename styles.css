@@ -17,6 +17,7 @@
   --size-font-sm: 1.2rem;
   --size-font-md: 1.5rem;
   --size-font-lg: 1.8rem;
+  --size-font-xlg: 4rem;
   --size-font-base: 1rem;
 
   /* 폰트굵기 */
@@ -448,6 +449,34 @@ main {
   font-size: var(--size-font-sm);
 }
 
+/* main__content__loadForm */
+
+.load__content {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.load__sayHi {
+  font-size: 4rem;
+  margin-bottom: 0.5em;
+}
+
+.load__input {
+  font-size: var(--size-font-lg);
+  text-align: center;
+}
+
+.load__instruction {
+  margin-top: 2em;
+}
+
+.load__description {
+  font-size: var(--size-font-sm);
+  font-weight: var(--wght-font-lg);
+}
 /* footer */
 
 footer {
