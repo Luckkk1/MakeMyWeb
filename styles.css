@@ -27,7 +27,7 @@
   --wght-font-xl: 700;
 
   /* 크기 */
-  --size-mainUtill-icon: 2em;
+  --size-mainUtill-icon: 3em;
 
   /* 패딩 */
   --padding-menu: 1em;
@@ -48,7 +48,7 @@ button {
 }
 
 body {
-  background-color: var(--color-light-grey);
+  background-color: var(--color-white);
 }
 
 li {
@@ -137,38 +137,25 @@ main {
 .mainBox__utillContainer {
   position: absolute;
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  font-size: var(--size-font-base);
-  background-color: var(--color-grey);
-  top: 40%;
+  top: 50%;
   right: 1em;
+  z-index: 1;
 }
 
-.mainBox__utilities {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--size-font-base);
-}
-
-.mainBox__expandUtill {
+.mainBox__plusUtill {
   font-size: var(--size-mainUtill-icon);
+  background-color: var(--color-grey);
   color: var(--color-white);
+  line-height: 100%;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  transition: transform 200ms ease-in-out;
 }
 
-.mainBox__utilities__addBox {
-  font-size: var(--size-mainUtill-icon);
-  color: var(--color-white);
-}
-
-.mainBox__utilities__adjBox {
-  font-size: var(--size-mainUtill-icon);
-  color: var(--color-white);
-}
-
-.mainBox__utilities__removeBox {
-  font-size: var(--size-mainUtill-icon);
-  color: var(--color-white);
+.mainBox__plusUtill:hover {
+  transform: scale(1.1);
+  background-color: var(--color-light-blue);
 }
 
 /* main__content */
