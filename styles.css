@@ -109,7 +109,7 @@ nav {
 }
 
 .nav__menuBtnContainer__login__loginBtn {
-  border-right: 0.05em solid var(--color-white);
+  border-right: 0.05em solid;
   color: var(--color-white);
   padding-right: 0.5em;
 }
@@ -494,8 +494,4 @@ footer {
 .foot__contact i {
   font-size: 2em;
   color: var(--color-white);
-}
-
-/* 위치정보 */
-.mainBox__toDo {
 }

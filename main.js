@@ -243,7 +243,7 @@ rgbInput.addEventListener("change", (e) => {
   }
   let rgbColor = new Color(r, g, b);
   // input 값 hex로 전환
-  inputToHex.innerText = `*HEX:${rgbColor.hex()}`;
+  inputToHex.innerText = `HEX:${rgbColor.hex()}`;
   //  색 미리보기
   colorShow.style.backgroundColor = rgbColor.hex();
 
