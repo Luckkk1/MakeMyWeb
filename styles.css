@@ -27,7 +27,6 @@
   --wght-font-xl: 700;
 
   /* 크기 */
-  --size-mainUtill-icon: 3em;
 
   /* 패딩 */
   --padding-menu: 1em;
@@ -131,31 +130,6 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 3em;
-}
-
-/* main__sideUtill */
-.mainBox__utillContainer {
-  position: absolute;
-  position: fixed;
-  top: 50%;
-  right: 1em;
-  z-index: 1;
-}
-
-.mainBox__plusUtill {
-  font-size: var(--size-mainUtill-icon);
-  background-color: var(--color-grey);
-  color: var(--color-white);
-  line-height: 100%;
-  border-radius: 50%;
-  width: 1em;
-  height: 1em;
-  transition: transform 200ms ease-in-out;
-}
-
-.mainBox__plusUtill:hover {
-  transform: scale(1.1);
-  background-color: var(--color-light-blue);
 }
 
 /* main__content */
@@ -447,23 +421,15 @@ main {
 }
 
 .load__sayHi {
-  font-size: 4rem;
+  font-size: var(--size-font-xlg);
   margin-bottom: 0.5em;
 }
 
-.load__input {
-  font-size: var(--size-font-lg);
-  text-align: center;
+.load__p {
+  font-size: var(--size-font-md);
+  padding-top: 0.5em;
 }
 
-.load__instruction {
-  margin-top: 2em;
-}
-
-.load__description {
-  font-size: var(--size-font-sm);
-  font-weight: var(--wght-font-lg);
-}
 /* footer */
 
 footer {

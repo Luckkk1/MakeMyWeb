@@ -7,6 +7,7 @@ const boxes = document.querySelectorAll(".box");
 
 // content box  미니 버튼 클릭 시 최소화
 // 드래그 크기조절 위해 transition 300ms 후 애니메이션 정상화
+
 miniBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     for (let box of boxes) {
@@ -27,7 +28,7 @@ quitBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     for (let box of boxes) {
       if (btn.dataset.key === box.dataset.value) {
-        box.style.display = "none";
+        box.remove();
       }
     }
   });
@@ -434,6 +435,12 @@ const position = { x: 0, y: 0 };
 
 for (let box of contentBoxes) {
   interact(box).draggable({
+    modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: "parent",
+        endOnly: true,
+      }),
+    ],
     listeners: {
       move: dragMoveListener,
     },
@@ -469,47 +476,3 @@ for (let box of contentBoxes) {
     },
   });
 }
-
-// <Load Form Box>
-const loadForm = document.querySelector(".load__form");
-const loadInput = document.querySelector(".load__input");
-const loadBox = document.querySelector(".mainBox__load");
-
-// loadForm 제출시
-loadForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // load Form을 입력된 다른 박스로 변경하는 함수
-  function ChangeToLoadedForm() {
-    for (let box of boxes) {
-      if (box.dataset.ins === loadInput.value) {
-        loadBox.innerHTML = "";
-        loadBox.innerHTML = box.innerHTML;
-      }
-    }
-  }
-
-  // 명령어 입력시 수행사항과 디폴트
-  let loadValue = loadInput.value;
-  switch (loadValue) {
-    case "비트":
-      ChangeToLoadedForm();
-      break;
-    case "투두":
-      ChangeToLoadedForm();
-      break;
-    case "계산":
-      ChangeToLoadedForm();
-      break;
-    case "색깔":
-      ChangeToLoadedForm();
-      break;
-    case "검색":
-      ChangeToLoadedForm();
-      break;
-    default:
-      alert("잘못된 명령어 입니다.");
-      loadForm.reset();
-      break;
-  }
-});
